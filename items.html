@@ -44,15 +44,19 @@
     <main id="itemsList"></main>
 
     <script>
+        let data = [];
+
         document.addEventListener('DOMContentLoaded', function () {
             getData();
         });
 
         function getData() {
-
             fetch('https://raw.githubusercontent.com/RCruento/EXAM_THYP_23-24/main/omk/items/items.json')
                 .then(response => response.json())
-                .then(data => showItems(data))
+                .then(items => {
+                    data = items;
+                    showItems(data);
+                })
                 .catch(error => console.error('Erreur lors de la récupération des données :', error));
         }
 
@@ -63,10 +67,11 @@
             items.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.innerHTML = `
-            <p><strong>Identifiant:</strong> ${item['o:id']}</p>
-            <p><strong>Titre:</strong> ${item['dcterms:title'][0]['@value']}</p>
-            <p><strong>Média:</strong> ${item['o:primary_media']}</p>
-        `;
+                    <p><strong>Identifiant:</strong> ${item['o:id']}</p>
+                    <p><strong>Titre:</strong> ${item['dcterms:title'][0]['@value']}</p>
+                    <p><strong>Média:</strong> ${item['o:primary_media']}</p>
+                    <hr>
+                `;
                 itemsList.appendChild(itemDiv);
             });
         }
@@ -76,13 +81,11 @@
             const itemsList = document.getElementById('itemsList');
             const filter = searchInput.value.toLowerCase();
 
-
             itemsList.innerHTML = '';
 
-
             const filteredItems = data.filter(item => {
-                const title = item.title.toLowerCase();
-                const media = item.media.toLowerCase();
+                const title = item['dcterms:title'][0]['@value'].toLowerCase();
+                const media = item['o:primary_media'].toLowerCase();
                 return title.includes(filter) || media.includes(filter);
             });
 
