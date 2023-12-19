@@ -1,0 +1,301 @@
+[
+  {
+    "@context": "http://localhost/omeka-s/api-context",
+    "@id": "http://localhost/omeka-s/api/items/2",
+    "@type": ["o:Item", "JO:Sportif"],
+    "o:id": 2,
+    "o:is_public": true,
+    "o:owner": { "@id": "http://localhost/omeka-s/api/users/1", "o:id": 1 },
+    "o:resource_class": {
+      "@id": "http://localhost/omeka-s/api/resource_classes/111",
+      "o:id": 111
+    },
+    "o:resource_template": {
+      "@id": "http://localhost/omeka-s/api/resource_templates/3",
+      "o:id": 3
+    },
+    "o:thumbnail": null,
+    "o:title": "Sportif",
+    "thumbnail_display_urls": { "large": null, "medium": null, "square": null },
+    "o:created": {
+      "@value": "2023-12-19T10:16:31+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:modified": {
+      "@value": "2023-12-19T10:16:31+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:primary_media": null,
+    "o:media": [],
+    "o:item_set": [],
+    "o:site": [],
+    "dcterms:title": [
+      {
+        "type": "literal",
+        "property_id": 1,
+        "property_label": "Title",
+        "is_public": true,
+        "@value": "Sportif"
+      }
+    ],
+    "dcterms:description": [
+      {
+        "type": "literal",
+        "property_id": 4,
+        "property_label": "Description",
+        "is_public": true,
+        "@value": "Participant aux JO"
+      }
+    ],
+    "JO:nom": [
+      {
+        "type": "literal",
+        "property_id": 201,
+        "property_label": "Nom",
+        "is_public": true,
+        "@value": "Rayan"
+      }
+    ],
+    "JO:dateNaissance": [
+      {
+        "type": "literal",
+        "property_id": 195,
+        "property_label": "Date de naissance",
+        "is_public": true,
+        "@value": "20/06/1996"
+      }
+    ],
+    "JO:genre": [
+      {
+        "type": "literal",
+        "property_id": 196,
+        "property_label": "Genre",
+        "is_public": true,
+        "@value": "Masculin"
+      }
+    ]
+  },
+  {
+    "@context": "http://localhost/omeka-s/api-context",
+    "@id": "http://localhost/omeka-s/api/items/3",
+    "@type": ["o:Item", "JO:JeuxOlympiques"],
+    "o:id": 3,
+    "o:is_public": true,
+    "o:owner": { "@id": "http://localhost/omeka-s/api/users/1", "o:id": 1 },
+    "o:resource_class": {
+      "@id": "http://localhost/omeka-s/api/resource_classes/115",
+      "o:id": 115
+    },
+    "o:resource_template": {
+      "@id": "http://localhost/omeka-s/api/resource_templates/7",
+      "o:id": 7
+    },
+    "o:thumbnail": null,
+    "o:title": "Paris",
+    "thumbnail_display_urls": { "large": null, "medium": null, "square": null },
+    "o:created": {
+      "@value": "2023-12-19T10:16:55+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:modified": {
+      "@value": "2023-12-19T10:16:55+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:primary_media": null,
+    "o:media": [],
+    "o:item_set": [],
+    "o:site": [],
+    "dcterms:title": [
+      {
+        "type": "literal",
+        "property_id": 1,
+        "property_label": "Title",
+        "is_public": true,
+        "@value": "Paris"
+      }
+    ],
+    "dcterms:description": [
+      {
+        "type": "literal",
+        "property_id": 4,
+        "property_label": "Description",
+        "is_public": true,
+        "@value": "Lieu "
+      }
+    ],
+    "JO:annee": [
+      {
+        "type": "literal",
+        "property_id": 200,
+        "property_label": "Ann\u00e9e",
+        "is_public": true,
+        "@value": "2024"
+      }
+    ]
+  },
+  {
+    "@context": "http://localhost/omeka-s/api-context",
+    "@id": "http://localhost/omeka-s/api/items/4",
+    "@type": ["o:Item", "JO:Resultat"],
+    "o:id": 4,
+    "o:is_public": true,
+    "o:owner": { "@id": "http://localhost/omeka-s/api/users/1", "o:id": 1 },
+    "o:resource_class": {
+      "@id": "http://localhost/omeka-s/api/resource_classes/112",
+      "o:id": 112
+    },
+    "o:resource_template": {
+      "@id": "http://localhost/omeka-s/api/resource_templates/4",
+      "o:id": 4
+    },
+    "o:thumbnail": null,
+    "o:title": "R\u00e9sultat comp\u00e9tition",
+    "thumbnail_display_urls": { "large": null, "medium": null, "square": null },
+    "o:created": {
+      "@value": "2023-12-19T10:19:30+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:modified": {
+      "@value": "2023-12-19T10:19:30+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:primary_media": null,
+    "o:media": [],
+    "o:item_set": [],
+    "o:site": [],
+    "dcterms:title": [
+      {
+        "type": "literal",
+        "property_id": 1,
+        "property_label": "Title",
+        "is_public": true,
+        "@value": "R\u00e9sultat comp\u00e9tition"
+      }
+    ],
+    "JO:competition": [
+      {
+        "type": "literal",
+        "property_id": 197,
+        "property_label": "Comp\u00e9tition",
+        "is_public": true,
+        "@value": "Natation"
+      }
+    ],
+    "JO:obtient": [
+      {
+        "type": "literal",
+        "property_id": 191,
+        "property_label": "Obtient",
+        "is_public": true,
+        "@value": "100"
+      }
+    ],
+    "JO:seDeroule": [
+      {
+        "type": "literal",
+        "property_id": 192,
+        "property_label": "Se d\u00e9roule lors de",
+        "is_public": true,
+        "@value": "Seine"
+      }
+    ]
+  },
+  {
+    "@context": "http://localhost/omeka-s/api-context",
+    "@id": "http://localhost/omeka-s/api/items/5",
+    "@type": ["o:Item", "JO:Pays"],
+    "o:id": 5,
+    "o:is_public": true,
+    "o:owner": { "@id": "http://localhost/omeka-s/api/users/1", "o:id": 1 },
+    "o:resource_class": {
+      "@id": "http://localhost/omeka-s/api/resource_classes/114",
+      "o:id": 114
+    },
+    "o:resource_template": {
+      "@id": "http://localhost/omeka-s/api/resource_templates/6",
+      "o:id": 6
+    },
+    "o:thumbnail": null,
+    "o:title": "France",
+    "thumbnail_display_urls": { "large": null, "medium": null, "square": null },
+    "o:created": {
+      "@value": "2023-12-19T10:19:52+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:modified": {
+      "@value": "2023-12-19T10:20:18+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:primary_media": null,
+    "o:media": [],
+    "o:item_set": [],
+    "o:site": [],
+    "dcterms:title": [
+      {
+        "type": "literal",
+        "property_id": 1,
+        "property_label": "Title",
+        "is_public": true,
+        "@value": "France"
+      }
+    ],
+    "JO:annee": [
+      {
+        "type": "literal",
+        "property_id": 200,
+        "property_label": "Ann\u00e9e",
+        "is_public": true,
+        "@value": "2024"
+      }
+    ]
+  },
+  {
+    "@context": "http://localhost/omeka-s/api-context",
+    "@id": "http://localhost/omeka-s/api/items/6",
+    "@type": ["o:Item", "JO:SportOlympique"],
+    "o:id": 6,
+    "o:is_public": true,
+    "o:owner": { "@id": "http://localhost/omeka-s/api/users/1", "o:id": 1 },
+    "o:resource_class": {
+      "@id": "http://localhost/omeka-s/api/resource_classes/113",
+      "o:id": 113
+    },
+    "o:resource_template": {
+      "@id": "http://localhost/omeka-s/api/resource_templates/5",
+      "o:id": 5
+    },
+    "o:thumbnail": null,
+    "o:title": "Natation",
+    "thumbnail_display_urls": { "large": null, "medium": null, "square": null },
+    "o:created": {
+      "@value": "2023-12-19T10:20:37+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:modified": {
+      "@value": "2023-12-19T10:20:37+00:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "o:primary_media": null,
+    "o:media": [],
+    "o:item_set": [],
+    "o:site": [],
+    "dcterms:title": [
+      {
+        "type": "literal",
+        "property_id": 1,
+        "property_label": "Title",
+        "is_public": true,
+        "@value": "Natation"
+      }
+    ],
+    "JO:discipline": [
+      {
+        "type": "literal",
+        "property_id": 198,
+        "property_label": "Discipline",
+        "is_public": true,
+        "@value": "Natation"
+      }
+    ]
+  }
+]

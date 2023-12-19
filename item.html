@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Items</title>
+</head>
+<body>
+    <h1>Liste des Items</h1>
+
+
+    <label for="searchInput">Rechercher :</label>
+    <input type="text" id="searchInput" oninput="filterItems()">
+
+    <div id="itemsList"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            getData();
+        });
+
+        function getData() {
+            fetch('https://votre-serveur-omeka-s/api/items')
+                .then(response => response.json())
+                .then(data => showItems(data))
+                .catch(error => console.error('Erreur lors de la récupération des données :', error));
+        }
+
+        function showItems(items) {
+            const itemsListDiv = document.getElementById('itemsList');
+
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.innerHTML = `
+                    <p><strong>Identifiant:</strong> ${item.id}</p>
+                    <p><strong>Titre:</strong> ${item.title}</p>
+                    <p><strong>Média:</strong> ${item.media}</p>
+                    <hr>
+                `;
+                itemsListDiv.appendChild(itemDiv);
+            });
+        }
+
+        function filterItems() {
+            const searchInput = document.getElementById('searchInput');
+            const itemsListDiv = document.getElementById('itemsList');
+            const filter = searchInput.value.toLowerCase();
+
+            itemsListDiv.innerHTML = '';
+
+            
+            const filteredItems = items.filter(item => {
+                const title = item.title.toLowerCase();
+                const media = item.media.toLowerCase();
+
+                return title.includes(filter) || media.includes(filter);
+            });
+            showItems(filteredItems);
+        }
+    </script>
+</body>
+</html>

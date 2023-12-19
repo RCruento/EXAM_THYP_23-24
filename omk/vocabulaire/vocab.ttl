@@ -55,45 +55,9 @@ ex:pratique rdf:type rdf:Property ;
             rdfs:label "Pratique" ;
             rdfs:comment "Relation entre un sportif et le sport olympique qu'il pratique" .
 
-# Propriétés additionnelles pour chaque classe
-
-# Propriétés pour la classe Sportif
-ex:dateNaissance rdf:type rdf:Property ;
-                 rdfs:domain ex:Sportif ;
-                 rdfs:range xsd:date ;
-                 rdfs:label "Date de naissance" ;
-                 rdfs:comment "Date de naissance du sportif" .
-
-ex:genre rdf:type rdf:Property ;
-         rdfs:domain ex:Sportif ;
-         rdfs:range rdfs:Literal ;
-         rdfs:label "Genre" ;
-         rdfs:comment "Genre du sportif (homme, femme, autre)" .
-
-# Propriétés pour la classe Resultat
-ex:competition rdf:type rdf:Property ;
-               rdfs:domain ex:Resultat ;
-               rdfs:range rdfs:Literal ;
-               rdfs:label "Compétition" ;
-               rdfs:comment "Nom de la compétition où le résultat a été obtenu" .
-
-# Propriétés pour la classe SportOlympique
-ex:discipline rdf:type rdf:Property ;
-              rdfs:domain ex:SportOlympique ;
-              rdfs:range rdfs:Literal ;
-              rdfs:label "Discipline" ;
-              rdfs:comment "Nom spécifique de la discipline sportive olympique" .
-
-# Propriétés pour la classe Pays
-ex:codeISO rdf:type rdf:Property ;
-          rdfs:domain ex:Pays ;
-          rdfs:range rdfs:Literal ;
-          rdfs:label "Code ISO" ;
-          rdfs:comment "Code ISO du pays (par exemple, FR pour la France)" .
-
-# Propriétés pour la classe JeuxOlympiques
-ex:annee rdf:type rdf:Property ;
-         rdfs:domain ex:JeuxOlympiques ;
-         rdfs:range xsd:gYear ;
-         rdfs:label "Année" ;
-         rdfs:comment "Année des Jeux Olympiques" .
+# Propriétés additionnelles pour la classe Sportif
+ex:nom rdf:type rdf:Property ;
+        rdfs:domain ex:Sportif ;
+        rdfs:range rdfs:Literal ;
+        rdfs:label "Nom" ;
+        rdfs:comment "Nom du sportif" .
