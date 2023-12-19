@@ -10,12 +10,14 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f8f8f8;
         }
 
         header {
-            background-color: #f2f2f2;
-            padding: 10px;
+            background-color: #333;
+            padding: 20px;
             text-align: center;
+            color: #fff;
         }
 
         main {
@@ -27,13 +29,24 @@
 
         .card {
             width: 300px;
-            margin-bottom: 20px;
+            background-color: #fff;
             border: 1px solid #ddd;
-            padding: 10px;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card p {
+            margin: 10px 0;
         }
 
         label {
             margin-right: 10px;
+        }
+
+        input {
+            padding: 8px;
         }
     </style>
 </head>
@@ -41,15 +54,14 @@
 <body>
     <header>
         <h1>Liste des Items</h1>
-        <label for="searchInput">Rechercher par Titre :</label>
+        <label for="searchInput">Rechercher :</label>
         <input type="text" id="searchInput" oninput="filterItems()">
     </header>
 
     <main id="itemsList"></main>
 
     <script>
-        let data;  
-
+        let data; 
         document.addEventListener('DOMContentLoaded', function () {
             getData();
         });
@@ -57,8 +69,8 @@
         function getData() {
             fetch('https://raw.githubusercontent.com/RCruento/EXAM_THYP_23-24/main/omk/items/items.json')
                 .then(response => response.json())
-                .then(itemsData => {
-                    data = itemsData;  
+                .then(items => {
+                    data = items;
                     showItems(data);
                 })
                 .catch(error => console.error('Erreur lors de la récupération des données :', error));
@@ -69,15 +81,30 @@
             itemsList.innerHTML = '';
 
             items.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.classList.add('card');
-                itemDiv.innerHTML = `
+                const itemCard = document.createElement('div');
+                itemCard.classList.add('card');
+                const joProperties = getJOProperties(item);
+
+                itemCard.innerHTML = `
                     <p><strong>Identifiant:</strong> ${item['o:id']}</p>
                     <p><strong>Titre:</strong> ${item['dcterms:title'][0]['@value']}</p>
                     <p><strong>Média:</strong> ${item['o:primary_media']}</p>
+                    ${joProperties}
                 `;
-                itemsList.appendChild(itemDiv);
+                itemsList.appendChild(itemCard);
             });
+        }
+
+        function getJOProperties(item) {
+            let propertiesHtml = '<p><strong>JO: Propriétés:</strong></p>';
+            Object.keys(item)
+                .filter(key => key.startsWith('JO:'))
+                .forEach(key => {
+                    const property = item[key][0];
+                    propertiesHtml += `<p><strong>${property['property_label']}:</strong> ${property['@value']}</p>`;
+                });
+
+            return propertiesHtml;
         }
 
         function filterItems() {
