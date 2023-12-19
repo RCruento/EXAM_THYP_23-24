@@ -4,15 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Items</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        div {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Liste des Items</h1>
+    <header>
+        <h1>Liste des Items</h1>
+        <label for="searchInput">Rechercher :</label>
+        <input type="text" id="searchInput" oninput="filterItems()">
+    </header>
 
-
-    <label for="searchInput">Rechercher :</label>
-    <input type="text" id="searchInput" oninput="filterItems()">
-
-    <div id="itemsList"></div>
+    <main id="itemsList"></main>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -20,14 +47,16 @@
         });
 
         function getData() {
-            fetch('https://votre-serveur-omeka-s/api/items')
+
+            fetch('https://raw.githubusercontent.com/RCruento/EXAM_THYP_23-24/main/omk/items/items.json')
                 .then(response => response.json())
                 .then(data => showItems(data))
                 .catch(error => console.error('Erreur lors de la récupération des données :', error));
         }
 
         function showItems(items) {
-            const itemsListDiv = document.getElementById('itemsList');
+            const itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = '';
 
             items.forEach(item => {
                 const itemDiv = document.createElement('div');
@@ -35,26 +64,26 @@
                     <p><strong>Identifiant:</strong> ${item.id}</p>
                     <p><strong>Titre:</strong> ${item.title}</p>
                     <p><strong>Média:</strong> ${item.media}</p>
-                    <hr>
                 `;
-                itemsListDiv.appendChild(itemDiv);
+                itemsList.appendChild(itemDiv);
             });
         }
 
         function filterItems() {
             const searchInput = document.getElementById('searchInput');
-            const itemsListDiv = document.getElementById('itemsList');
+            const itemsList = document.getElementById('itemsList');
             const filter = searchInput.value.toLowerCase();
 
-            itemsListDiv.innerHTML = '';
 
-            
-            const filteredItems = items.filter(item => {
+            itemsList.innerHTML = '';
+
+
+            const filteredItems = data.filter(item => {
                 const title = item.title.toLowerCase();
                 const media = item.media.toLowerCase();
-
                 return title.includes(filter) || media.includes(filter);
             });
+
             showItems(filteredItems);
         }
     </script>
