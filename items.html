@@ -20,9 +20,13 @@
 
         main {
             padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
-        div {
+        .card {
+            width: 300px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
             padding: 10px;
@@ -37,14 +41,14 @@
 <body>
     <header>
         <h1>Liste des Items</h1>
-        <label for="searchInput">Rechercher :</label>
+        <label for="searchInput">Rechercher par Titre :</label>
         <input type="text" id="searchInput" oninput="filterItems()">
     </header>
 
     <main id="itemsList"></main>
 
     <script>
-        let data = [];
+        let data;  
 
         document.addEventListener('DOMContentLoaded', function () {
             getData();
@@ -53,8 +57,8 @@
         function getData() {
             fetch('https://raw.githubusercontent.com/RCruento/EXAM_THYP_23-24/main/omk/items/items.json')
                 .then(response => response.json())
-                .then(items => {
-                    data = items;
+                .then(itemsData => {
+                    data = itemsData;  
                     showItems(data);
                 })
                 .catch(error => console.error('Erreur lors de la récupération des données :', error));
@@ -66,11 +70,11 @@
 
             items.forEach(item => {
                 const itemDiv = document.createElement('div');
+                itemDiv.classList.add('card');
                 itemDiv.innerHTML = `
                     <p><strong>Identifiant:</strong> ${item['o:id']}</p>
                     <p><strong>Titre:</strong> ${item['dcterms:title'][0]['@value']}</p>
                     <p><strong>Média:</strong> ${item['o:primary_media']}</p>
-                    <hr>
                 `;
                 itemsList.appendChild(itemDiv);
             });
@@ -85,8 +89,7 @@
 
             const filteredItems = data.filter(item => {
                 const title = item['dcterms:title'][0]['@value'].toLowerCase();
-                const media = item['o:primary_media'].toLowerCase();
-                return title.includes(filter) || media.includes(filter);
+                return title.includes(filter);
             });
 
             showItems(filteredItems);
