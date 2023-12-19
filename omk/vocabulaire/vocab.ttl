@@ -1,0 +1,99 @@
+@prefix ex: <https://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Définition des classes
+ex:Sportif rdf:type rdfs:Class ;
+           rdfs:label "Sportif" ;
+           rdfs:comment "Individu participant aux compétitions sportives" .
+
+ex:Resultat rdf:type rdfs:Class ;
+            rdfs:label "Resultat" ;
+            rdfs:comment "Résultat d'un sportif dans une compétition donnée" .
+
+ex:SportOlympique rdf:type rdfs:Class ;
+                 rdfs:label "Sport Olympique" ;
+                 rdfs:comment "Catégorie de sport pratiquée aux Jeux Olympiques" .
+
+ex:Pays rdf:type rdfs:Class ;
+        rdfs:label "Pays" ;
+        rdfs:comment "Entité géographique nationale" .
+
+ex:JeuxOlympiques rdf:type rdfs:Class ;
+                 rdfs:label "Jeux Olympiques" ;
+                 rdfs:comment "Événement mondial multisport" .
+
+# Propriétés
+ex:participe rdf:type rdf:Property ;
+            rdfs:domain ex:Sportif ;
+            rdfs:range ex:Resultat ;
+            rdfs:label "Participe à" ;
+            rdfs:comment "Relation entre un sportif et son résultat dans une compétition" .
+
+ex:obtient rdf:type rdf:Property ;
+            rdfs:domain ex:Resultat ;
+            rdfs:range xsd:integer ;
+            rdfs:label "Obtient" ;
+            rdfs:comment "Score ou classement obtenu par un sportif dans une compétition" .
+
+ex:seDeroule rdf:type rdf:Property ;
+            rdfs:domain ex:Resultat ;
+            rdfs:range ex:JeuxOlympiques ;
+            rdfs:label "Se déroule lors de" ;
+            rdfs:comment "Relation entre un résultat sportif et l'événement des Jeux Olympiques" .
+
+ex:represente rdf:type rdf:Property ;
+            rdfs:domain ex:Sportif ;
+            rdfs:range ex:Pays ;
+            rdfs:label "Représente" ;
+            rdfs:comment "Relation entre un sportif et le pays qu'il représente" .
+
+ex:pratique rdf:type rdf:Property ;
+            rdfs:domain ex:Sportif ;
+            rdfs:range ex:SportOlympique ;
+            rdfs:label "Pratique" ;
+            rdfs:comment "Relation entre un sportif et le sport olympique qu'il pratique" .
+
+# Propriétés additionnelles pour chaque classe
+
+# Propriétés pour la classe Sportif
+ex:dateNaissance rdf:type rdf:Property ;
+                 rdfs:domain ex:Sportif ;
+                 rdfs:range xsd:date ;
+                 rdfs:label "Date de naissance" ;
+                 rdfs:comment "Date de naissance du sportif" .
+
+ex:genre rdf:type rdf:Property ;
+         rdfs:domain ex:Sportif ;
+         rdfs:range rdfs:Literal ;
+         rdfs:label "Genre" ;
+         rdfs:comment "Genre du sportif (homme, femme, autre)" .
+
+# Propriétés pour la classe Resultat
+ex:competition rdf:type rdf:Property ;
+               rdfs:domain ex:Resultat ;
+               rdfs:range rdfs:Literal ;
+               rdfs:label "Compétition" ;
+               rdfs:comment "Nom de la compétition où le résultat a été obtenu" .
+
+# Propriétés pour la classe SportOlympique
+ex:discipline rdf:type rdf:Property ;
+              rdfs:domain ex:SportOlympique ;
+              rdfs:range rdfs:Literal ;
+              rdfs:label "Discipline" ;
+              rdfs:comment "Nom spécifique de la discipline sportive olympique" .
+
+# Propriétés pour la classe Pays
+ex:codeISO rdf:type rdf:Property ;
+          rdfs:domain ex:Pays ;
+          rdfs:range rdfs:Literal ;
+          rdfs:label "Code ISO" ;
+          rdfs:comment "Code ISO du pays (par exemple, FR pour la France)" .
+
+# Propriétés pour la classe JeuxOlympiques
+ex:annee rdf:type rdf:Property ;
+         rdfs:domain ex:JeuxOlympiques ;
+         rdfs:range xsd:gYear ;
+         rdfs:label "Année" ;
+         rdfs:comment "Année des Jeux Olympiques" .
