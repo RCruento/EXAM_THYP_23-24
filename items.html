@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +33,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Liste des Items</h1>
@@ -61,10 +63,10 @@
             items.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.innerHTML = `
-                    <p><strong>Identifiant:</strong> ${item.id}</p>
-                    <p><strong>Titre:</strong> ${item.title}</p>
-                    <p><strong>Média:</strong> ${item.media}</p>
-                `;
+            <p><strong>Identifiant:</strong> ${item['o:id']}</p>
+            <p><strong>Titre:</strong> ${item['dcterms:title'][0]['@value']}</p>
+            <p><strong>Média:</strong> ${item['o:primary_media']}</p>
+        `;
                 itemsList.appendChild(itemDiv);
             });
         }
@@ -88,4 +90,5 @@
         }
     </script>
 </body>
+
 </html>
